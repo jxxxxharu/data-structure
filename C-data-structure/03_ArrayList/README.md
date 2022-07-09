@@ -1,46 +1,47 @@
-# Chapter 03. ¼øÂ÷ ¸®½ºÆ® (= ¹è¿­ ±â¹Ý ¸®½ºÆ®)
+# Chapter 03. ìˆœì°¨ ë¦¬ìŠ¤íŠ¸ (= ë°°ì—´ ê¸°ë°˜ ë¦¬ìŠ¤íŠ¸)
 
-¹è¿­À» ±â¹ÝÀ¸·Î ¸®½ºÆ®(List) ±¸ÇöÇÏ±â
+ë°°ì—´ë¡œ ë¦¬ìŠ¤íŠ¸(List) êµ¬í˜„í•˜ê¸°
 
 
-## ¸®½ºÆ®ÀÇ ADT
+## ë¦¬ìŠ¤íŠ¸ì˜ ADT
 
 * void ListInit(List* plist); 
-	- ¸®½ºÆ® ÃÊ±âÈ­ (OOPÀÇ »ý¼ºÀÚ °°Àº °Í)
+	- ë¦¬ìŠ¤íŠ¸ ì´ˆê¸°í™” (OOPì˜ ìƒì„±ìž ê°™ì€ ê²ƒ)
 
 * void LInsert(List* plist, LData data);
-	- ¸®½ºÆ® ³¡¿¡ µ¥ÀÌÅÍ Ãß°¡
+	- ë¦¬ìŠ¤íŠ¸ ëì— ë°ì´í„° ì¶”ê°€
 
 * int LFirst(List* plist, LData* data);
-	- (ÂüÁ¶À§Ä¡) = 0À¸·Î ÃÊ±âÈ­
-	- ÂüÁ¶¸¦ ¾Õ¿¡¼­ºÎÅÍ »õ·Î ½ÃÀÛÇÏ±â À§ÇØ È£ÃâÇÑ´Ù
-	- ÂüÁ¶ ¼º°ø ½Ã TRUE(1), ½ÇÆÐ ½Ã FALSE(0) ¹ÝÈ¯
+	- (ì°¸ì¡°ìœ„ì¹˜) = 0ìœ¼ë¡œ ì´ˆê¸°í™”
+	- ì°¸ì¡°ë¥¼ ì•žì—ì„œë¶€í„° ìƒˆë¡œ ì‹œìž‘í•˜ê¸° ìœ„í•´ í˜¸ì¶œí•œë‹¤
+	- ì°¸ì¡° ì„±ê³µ ì‹œ TRUE(1), ì‹¤íŒ¨ ì‹œ FALSE(0) ë°˜í™˜
 
 * int LNext(List* plist, LData* data);
-	- ¼øÂ÷ÀûÀÎ ÂüÁ¶¸¦ À§ÇØ (ÂüÁ¶À§Ä¡)++
-	- ÂüÁ¶ ¼º°ø ½Ã TRUE(1), ½ÇÆÐ ½Ã FALSE(0) ¹ÝÈ¯
+	- ìˆœì°¨ì ì¸ ì°¸ì¡°ë¥¼ ìœ„í•´ (ì°¸ì¡°ìœ„ì¹˜)++
+	- ì°¸ì¡° ì„±ê³µ ì‹œ TRUE(1), ì‹¤íŒ¨ ì‹œ FALSE(0) ë°˜í™˜
 
 * int LRemove(List* plist, LData* data);
-	- LFirst()³ª LNext()¸¦ ÅëÇØ ¹Ù·Î Á÷Àü ÂüÁ¶µÈ µ¥ÀÌÅÍ¸¦ »èÁ¦
-	- »èÁ¦µÈ µ¥ÀÌÅÍ ¹ÝÈ¯
+	- LFirst()ë‚˜ LNext()ë¥¼ í†µí•´ ë°”ë¡œ ì§ì „ ì°¸ì¡°ëœ ë°ì´í„°ë¥¼ ì‚­ì œ
+	- ì‚­ì œëœ ë°ì´í„° ë°˜í™˜
 
 * int LCount(List* plist, LData* data);
-	- ¸®½ºÆ®¿¡ ÀúÀåµÈ µ¥ÀÌÅÍÀÇ ¼ö ¹ÝÈ¯
+	- ë¦¬ìŠ¤íŠ¸ì— ì €ìž¥ëœ ë°ì´í„°ì˜ ìˆ˜ ë°˜í™˜
 
 
 
-### »ðÀÔ°ú Á¶È¸
+### ì‚½ìž…ê³¼ ì¡°íšŒ
 LFirst -> LNext -> LNext -> LNext -> ...
-=> º¸ÆíÀûÀÎ µ¥ÀÌÅÍ ÂüÁ¶ ¸ðµ¨ÀÌ´Ù.
+=> ë³´íŽ¸ì ì¸ ë°ì´í„° ì°¸ì¡° ëª¨ë¸ì´ë‹¤.
 
 
-### »èÁ¦
-»èÁ¦ÀÇ ±âº» ¸ðµ¨ - Áß°£¿¡ µ¥ÀÌÅÍ°¡ »èÁ¦ ½Ã, µÚ¿¡ ÀúÀåµÈ µ¥ÀÌÅÍµéÀ» ¾ÕÀ¸·Î ÇÑ Ä­¾¿ ÀÌµ¿½ÃÅ´
+### ì‚­ì œ
+ì‚­ì œì˜ ê¸°ë³¸ ëª¨ë¸ - ì¤‘ê°„ì— ë°ì´í„°ê°€ ì‚­ì œ ì‹œ, ë’¤ì— ì €ìž¥ëœ ë°ì´í„°ë“¤ì„ ì•žìœ¼ë¡œ í•œ ì¹¸ì”© ì´ë™ì‹œí‚´
 
 
-### ÀåÁ¡
-- ¹è¿­À» ÀÌ¿ëÇÏ±â ¶§¹®¿¡ µ¥ÀÌÅÍ ÂüÁ¶°¡ ½±´Ù. ÀÎµ¦½º °ªÀ» ±âÁØÀ¸·Î ¾îµðµç ÇÑ ¹ø¿¡ ÂüÁ¶°¡ °¡´ÉÇÏ´Ù.
 
-### ´ÜÁ¡
-- ¹è¿­ ±æÀÌ°¡ ÃÊ±â¿¡ °áÁ¤µÇ°í, º¯°æÀÌ ºÒ°¡´ÉÇÏ´Ù.
-- »èÁ¦ °úÁ¤¿¡¼­ µ¥ÀÌÅÍÀÇ ÀÌµ¿(º¹»ç)ÀÌ ¹ß»ýÇÑ´Ù.
+## ìž¥ì 
+- ë°°ì—´ì„ ì´ìš©í•˜ê¸° ë•Œë¬¸ì— ë°ì´í„° ì°¸ì¡°ê°€ ì‰½ë‹¤. ì¸ë±ìŠ¤ ê°’ì„ ê¸°ì¤€ìœ¼ë¡œ ì–´ë””ë“  í•œ ë²ˆì— ì°¸ì¡°ê°€ ê°€ëŠ¥í•˜ë‹¤.
+
+## ë‹¨ì 
+- ë°°ì—´ ê¸¸ì´ê°€ ì´ˆê¸°ì— ê²°ì •ë˜ê³ , ë³€ê²½ì´ ë¶ˆê°€ëŠ¥í•˜ë‹¤.
+- ì‚­ì œ ê³¼ì •ì—ì„œ ë°ì´í„°ì˜ ì´ë™(ë³µì‚¬)ì´ ë°œìƒí•œë‹¤.
